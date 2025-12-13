@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Hindu Priest Services | Pandit Bhavesh Joshi</title>
+    <meta name="description" content="Contact Pandit Bhavesh Joshi for Hindu priest services, wedding ceremonies, poojas, and spiritual consultations across all 50 states.">
+    <meta name="keywords" content="contact Hindu priest, Hindu priest phone number, wedding priest contact">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact - Hindu Priest Services">
+    <meta property="og:description" content="Contact Pandit Bhavesh Joshi for Hindu priest services">
+    <meta property="og:image" content="resources/pandit-portrait.jpg">
+    <meta property="og:url" content="https://panditbhaveshjoshi.com/contact.html">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --deep-blue: #003399;
+            --gold: #DAA520;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .text-saffron { color: var(--saffron); }
+        .text-deep-blue { color: var(--deep-blue); }
+        .text-gold { color: var(--gold); }
+        .bg-saffron { background-color: var(--saffron); }
+        .bg-deep-blue { background-color: var(--deep-blue); }
+        .bg-gold { background-color: var(--gold); }
+        .border-saffron { border-color: var(--saffron); }
+        .border-gold { border-color: var(--gold); }
+        
+        .nav-link.active {
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--saffron) 0%, #FF8000 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 153, 51, 0.4);
+        }
+        
+        .btn-secondary {
+            border: 2px solid var(--deep-blue);
+            color: var(--deep-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--deep-blue);
+            color: white;
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .contact-card:hover {
+            border-color: var(--saffron);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 153, 51, 0.15);
+        }
+        
+        .form-input {
+            border: 2px solid #d1d5db;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--saffron);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+        }
+        
+        .social-link {
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+            color: var(--saffron);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-display font-bold text-deep-blue">
+                        <span class="text-saffron">Pandit</span> Bhavesh Joshi
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">About</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                    <a href="shop.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Shop</a>
+                    <a href="booking.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Booking</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    <a href="booking.html" class="btn-primary text-white px-6 py-2 rounded-lg text-sm font-medium">Book Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-toggle text-gray-700 hover:text-saffron focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-16 right-0 w-64 h-full bg-white shadow-lg z-40 md:hidden">
+            <div class="p-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-saffron font-medium">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-saffron font-medium">About</a>
+                <a href="services.html" class="block text-gray-700 hover:text-saffron font-medium">Services</a>
+                <a href="shop.html" class="block text-gray-700 hover:text-saffron font-medium">Shop</a>
+                <a href="booking.html" class="block text-gray-700 hover:text-saffron font-medium">Booking</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-saffron font-medium">Contact</a>
+                <a href="booking.html" class="block btn-primary text-white px-4 py-2 rounded-lg text-center mt-4">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-saffron/10 to-deep-blue/10 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center scroll-animate">
+                <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Contact <span class="text-saffron">Pandit Bhavesh Joshi</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Get in touch for Hindu priest services, spiritual guidance, and ceremonial needs. 
+                    Serving Hindu communities across all 50 states with dedication and devotion.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:+15551234567" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold text-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call Now: +1 (555) 123-4567
+                    </a>
+                    <a href="booking.html" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold text-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Book Online
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Get in <span class="text-saffron">Touch</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Multiple ways to connect with us for your spiritual needs
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Phone -->
+                <div class="contact-card bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-saffron/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-phone text-saffron text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Phone</h3>
+                    <p class="text-gray-600 mb-4">Call for immediate assistance and urgent bookings</p>
+                    <a href="tel:+15551234567" class="text-saffron font-semibold hover:text-deep-blue transition-colors">
+                        +1 (555) 123-4567
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2">Available 24/7 for emergencies</p>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-deep-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-envelope text-deep-blue text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Email</h3>
+                    <p class="text-gray-600 mb-4">Send detailed inquiries and service requests</p>
+                    <a href="mailto:info@panditbhaveshjoshi.com" class="text-saffron font-semibold hover:text-deep-blue transition-colors">
+                        info@panditbhaveshjoshi.com
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2">Response within 24 hours</p>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="contact-card bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-whatsapp text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">WhatsApp</h3>
+                    <p class="text-gray-600 mb-4">Quick messages and voice notes</p>
+                    <a href="https://wa.me/15551234567" class="text-saffron font-semibold hover:text-deep-blue transition-colors">
+                        +1 (555) 123-4567
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2">Text and voice messages</p>
+                </div>
+
+                <!-- Emergency -->
+                <div class="contact-card bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-saffron/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-exclamation-triangle text-saffron text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Emergency</h3>
+                    <p class="text-gray-600 mb-4">Urgent ceremonies and last-minute bookings</p>
+                    <a href="tel:+15551234567" class="text-saffron font-semibold hover:text-deep-blue transition-colors">
+                        +1 (555) 123-4567
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2">Available 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="scroll-animate">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">
+                        Send us a <span class="text-saffron">Message</span>
+                    </h2>
+                    <form class="contact-form space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="form-input w-full px-4 py-3 border rounded-lg focus:border-gold focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="form-input w-full px-4 py-3 border rounded-lg focus:border-gold focus:outline-none">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       class="form-input w-full px-4 py-3 border rounded-lg focus:border-gold focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                                <select id="service" name="service" 
+                                        class="form-input w-full px-4 py-3 border rounded-lg focus:border-gold focus:outline-none">
+                                    <option value="">Select a service</option>
+                                    <option value="wedding">Wedding Ceremony</option>
+                                    <option value="pooja">Pooja Services</option>
+                                    <option value="havan">Havan Ceremony</option>
+                                    <option value="griha-pravesh">Griha Pravesh</option>
+                                    <option value="namkaran">Namkaran Ceremony</option>
+                                    <option value="upanayanam">Upanayanam</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="location" class="block text-sm font-medium text-gray-700 mb-2">Location/City</label>
+                            <input type="text" id="location" name="location" 
+                                   class="form-input w-full px-4 py-3 border rounded-lg focus:border-gold focus:outline-none" 
+                                   placeholder="Which city/state are you located in?">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="form-input w-full px-4 py-3 border rounded-lg focus:border-gold focus:outline-none" 
+                                      placeholder="Please describe your requirements, preferred dates, or any questions you have..."></textarea>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="urgent" name="urgent" class="mr-3">
+                            <label for="urgent" class="text-sm text-gray-700">This is an urgent request</label>
+                        </div>
+                        <button type="submit" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold w-full">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="scroll-animate">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">
+                        Contact <span class="text-saffron">Details</span>
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <!-- Direct Contact -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="font-semibold text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-user-tie text-saffron mr-3"></i>
+                                Direct Contact
+                            </h3>
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong>Pandit Bhavesh Joshi</strong></p>
+                                <p>Traditional Hindu Priest & Spiritual Guide</p>
+                                <p>25+ Years of Experience</p>
+                                <p>Serving Hindu Communities Across America</p>
+                            </div>
+                        </div>
+
+                        <!-- Business Hours -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="font-semibold text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-clock text-saffron mr-3"></i>
+                                Availability
+                            </h3>
+                            <div class="space-y-2 text-gray-700">
+                                <div class="flex justify-between">
+                                    <span>Regular Consultations:</span>
+                                    <span>Mon-Sun 8AM-8PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Ceremony Bookings:</span>
+                                    <span>By Appointment</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Emergency Services:</span>
+                                    <span>24/7 Available</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Response Time:</span>
+                                    <span>Within 24 Hours</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Areas -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="font-semibold text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-map-marked-alt text-saffron mr-3"></i>
+                                Service Areas
+                            </h3>
+                            <div class="text-gray-700">
+                                <p class="mb-2"><strong>All 50 States Covered</strong></p>
+                                <p class="text-sm mb-3">Including but not limited to:</p>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div>• California</div>
+                                    <div>• Texas</div>
+                                    <div>• New York</div>
+                                    <div>• Florida</div>
+                                    <div>• Illinois</div>
+                                    <div>• New Jersey</div>
+                                    <div>• Massachusetts</div>
+                                    <div>• Virginia</div>
+                                    <div>• Washington</div>
+                                    <div>• Arizona</div>
+                                </div>
+                                <p class="text-sm mt-3 text-gray-600">
+                                    <em>And all other states - Traveling to your location</em>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="font-semibold text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-language text-saffron mr-3"></i>
+                                Languages
+                            </h3>
+                            <div class="space-y-2 text-gray-700">
+                                <div class="flex justify-between">
+                                    <span>Primary:</span>
+                                    <span>Hindi, Gujarati, English</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Also Speak:</span>
+                                    <span>Sanskrit, Marathi</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Regional:</span>
+                                    <span>Tamil, Telugu, Kannada</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Service <span class="text-saffron">Coverage</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Serving Hindu communities across all 50 states
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Map -->
+                <div class="scroll-animate">
+                    <div class="map-container bg-gray-200 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-map-marked-alt text-6xl mb-4"></i>
+                            <h3 class="font-semibold text-lg mb-2">United States Coverage Map</h3>
+                            <p class="text-sm">Serving all 50 states with Hindu priest services</p>
+                            <p class="text-xs mt-2 text-gray-500">
+                                Interactive map would be integrated here with Google Maps API
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Areas List -->
+                <div class="scroll-animate">
+                    <h3 class="font-display text-2xl font-semibold text-gray-900 mb-6">
+                        Major Service Areas
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4 text-gray-700">
+                        <div>
+                            <h4 class="font-semibold text-deep-blue mb-3">West Coast</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• San Francisco Bay Area</li>
+                                <li>• Los Angeles, CA</li>
+                                <li>• Seattle, WA</li>
+                                <li>• Portland, OR</li>
+                                <li>• San Diego, CA</li>
+                                <li>• Sacramento, CA</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-deep-blue mb-3">East Coast</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• New York City</li>
+                                <li>• Washington DC Area</li>
+                                <li>• Boston, MA</li>
+                                <li>• Philadelphia, PA</li>
+                                <li>• Atlanta, GA</li>
+                                <li>• Miami, FL</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-deep-blue mb-3">Central</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• Dallas, TX</li>
+                                <li>• Houston, TX</li>
+                                <li>• Austin, TX</li>
+                                <li>• Chicago, IL</li>
+                                <li>• Denver, CO</li>
+                                <li>• Phoenix, AZ</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-deep-blue mb-3">Other States</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• Detroit, MI</li>
+                                <li>• Minneapolis, MN</li>
+                                <li>• Charlotte, NC</li>
+                                <li>• Nashville, TN</li>
+                                <li>• Las Vegas, NV</li>
+                                <li>• And many more...</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-saffron/5 rounded-lg">
+                        <p class="text-sm text-gray-700">
+                            <strong>Don't see your city?</strong> No problem! Panditji travels to all locations 
+                            across the United States. Contact us to discuss your specific needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Frequently Asked <span class="text-saffron">Questions</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Common questions about our services and booking process
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate">
+                    <div class="faq-question p-6 flex justify-between items-center" data-target="faq1">
+                        <h3 class="font-semibold text-gray-900">How far in advance should I book a ceremony?</h3>
+                        <i class="fas fa-chevron-down text-saffron transition-transform"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">
+                            We recommend booking 3-7 days in advance for regular ceremonies and 2-4 weeks for weddings and major events. 
+                            However, we can often accommodate urgent requests with shorter notice.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate">
+                    <div class="faq-question p-6 flex justify-between items-center" data-target="faq2">
+                        <h3 class="font-semibold text-gray-900">What areas do you serve?</h3>
+                        <i class="fas fa-chevron-down text-saffron transition-transform"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">
+                            We serve all 50 states in the United States. Panditji travels to your location, 
+                            whether it's a major city or a smaller town. Travel expenses may apply for distant locations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate">
+                    <div class="faq-question p-6 flex justify-between items-center" data-target="faq3">
+                        <h3 class="font-semibold text-gray-900">What are your fees?</h3>
+                        <i class="fas fa-chevron-down text-saffron transition-transform"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">
+                            Fees vary based on the type of ceremony, duration, and location. Basic poojas start from $300, 
+                            while weddings range from $1,200-$2,500. We provide transparent pricing with no hidden fees.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate">
+                    <div class="faq-question p-6 flex justify-between items-center" data-target="faq4">
+                        <h3 class="font-semibold text-gray-900">Do you provide the necessary items for ceremonies?</h3>
+                        <i class="fas fa-chevron-down text-saffron transition-transform"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">
+                            We provide a detailed list of required items before the ceremony. In some cases, we can bring 
+                            essential pooja items for an additional fee. We also have a spiritual shop for purchasing items.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate">
+                    <div class="faq-question p-6 flex justify-between items-center" data-target="faq5">
+                        <h3 class="font-semibold text-gray-900">Can you accommodate different regional traditions?</h3>
+                        <i class="fas fa-chevron-down text-saffron transition-transform"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">
+                            Yes, we are experienced in various regional traditions including North Indian, South Indian, 
+                            Gujarati, Bengali, and Punjabi customs. We ensure authentic ceremonies according to your traditions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate">
+                    <div class="faq-question p-6 flex justify-between items-center" data-target="faq6">
+                        <h3 class="font-semibold text-gray-900">What languages do you speak?</h3>
+                        <i class="fas fa-chevron-down text-saffron transition-transform"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">
+                            We are fluent in Hindi, Gujarati, and English. We also have working knowledge of Sanskrit, 
+                            Marathi, Tamil, Telugu, and Kannada to perform authentic ceremonies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media & Community -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Join Our <span class="text-saffron">Community</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Follow us for spiritual insights, ceremony updates, and community events
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center scroll-animate">
+                    <a href="#" class="social-link block p-6 bg-gray-50 rounded-xl hover:bg-saffron/5 transition-colors">
+                        <i class="fab fa-facebook-f text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="font-semibold text-gray-900 mb-2">Facebook</h3>
+                        <p class="text-sm text-gray-600">Follow for updates and community events</p>
+                    </a>
+                </div>
+
+                <div class="text-center scroll-animate">
+                    <a href="#" class="social-link block p-6 bg-gray-50 rounded-xl hover:bg-saffron/5 transition-colors">
+                        <i class="fab fa-youtube text-4xl text-red-600 mb-4"></i>
+                        <h3 class="font-semibold text-gray-900 mb-2">YouTube</h3>
+                        <p class="text-sm text-gray-600">Watch ceremony videos and spiritual talks</p>
+                    </a>
+                </div>
+
+                <div class="text-center scroll-animate">
+                    <a href="#" class="social-link block p-6 bg-gray-50 rounded-xl hover:bg-saffron/5 transition-colors">
+                        <i class="fab fa-instagram text-4xl text-pink-600 mb-4"></i>
+                        <h3 class="font-semibold text-gray-900 mb-2">Instagram</h3>
+                        <p class="text-sm text-gray-600">Daily spiritual inspiration and photos</p>
+                    </a>
+                </div>
+
+                <div class="text-center scroll-animate">
+                    <a href="#" class="social-link block p-6 bg-gray-50 rounded-xl hover:bg-saffron/5 transition-colors">
+                        <i class="fab fa-whatsapp text-4xl text-green-600 mb-4"></i>
+                        <h3 class="font-semibold text-gray-900 mb-2">WhatsApp</h3>
+                        <p class="text-sm text-gray-600">Direct messaging for quick queries</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-saffron to-orange-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+                    Ready to Begin Your Spiritual Journey?
+                </h2>
+                <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                    Don't wait to connect with your spiritual heritage. Contact us today to discuss 
+                    your ceremony needs and book your appointment with Pandit Bhavesh Joshi.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="booking.html" class="bg-white text-saffron px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                        Book Appointment
+                    </a>
+                    <a href="tel:+15551234567" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-saffron transition-colors">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-display font-bold mb-4">
+                        <span class="text-saffron">Pandit</span> Bhavesh Joshi
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Traditional Hindu priest offering authentic spiritual services, 
+                        ceremonies, and rituals across the United States.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-saffron transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-saffron transition-colors">Services</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-saffron transition-colors">Shop</a></li>
+                        <li><a href="booking.html" class="text-gray-400 hover:text-saffron transition-colors">Booking</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-saffron transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-saffron mr-3"></i>
+                            <a href="tel:+15551234567" class="hover:text-saffron transition-colors">+1 (555) 123-4567</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-saffron mr-3"></i>
+                            <a href="mailto:info@panditbhaveshjoshi.com" class="hover:text-saffron transition-colors">info@panditbhaveshjoshi.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-saffron mr-3"></i>
+                            <span>Serving All 50 States</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Pandit Bhavesh Joshi. All rights reserved. | 
+                <span class="text-saffron">ॐ शान्ति शान्ति शान्तिः</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        // Contact-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const targetId = this.dataset.target;
+                    const answer = document.querySelector(`#${targetId}`);
+                    const icon = this.querySelector('i');
+                    
+                    // Close all other FAQs
+                    document.querySelectorAll('.faq-answer').forEach(item => {
+                        if (item !== answer) {
+                            item.classList.remove('active');
+                            item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    answer.classList.toggle('active');
+                    icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                });
+            });
+
+            // Contact form functionality
+            const contactForm = document.querySelector('.contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                const contactData = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    service: formData.get('service'),
+                    location: formData.get('location'),
+                    message: formData.get('message'),
+                    urgent: formData.get('urgent') === 'on'
+                };
+
+                console.log('Contact Data:', contactData);
+                
+                // Show success message
+                showContactSuccess();
+            });
+
+            function showContactSuccess() {
+                const form = document.querySelector('.contact-form');
+                const successMessage = document.createElement('div');
+                successMessage.className = 'contact-success bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4';
+                successMessage.innerHTML = `
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Thank you for your message! We will get back to you within 24 hours.
+                    </div>
+                `;
+                
+                form.insertBefore(successMessage, form.firstChild);
+                form.reset();
+                
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5000);
+            }
+
+            // Social media links
+            document.querySelectorAll('.social-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const platform = this.querySelector('h3').textContent;
+                    showNotification(`Connecting to ${platform}...`, 'info');
+                });
+            });
+
+            // Phone number click tracking
+            document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    console.log('Phone call initiated:', this.href);
+                });
+            });
+
+            // Email click tracking
+            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    console.log('Email initiated:', this.href);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

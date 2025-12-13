@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Hindu Priest Services | Pandit Bhavesh Joshi</title>
+    <meta name="description" content="Book your Hindu priest appointment online. Schedule weddings, poojas, havan ceremonies, and spiritual consultations with Pandit Bhavesh Joshi.">
+    <meta name="keywords" content="book Hindu priest, schedule pooja, wedding booking, havan ceremony booking">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Book Appointment - Hindu Priest Services">
+    <meta property="og:description" content="Book your Hindu priest appointment online">
+    <meta property="og:image" content="resources/pandit-portrait.jpg">
+    <meta property="og:url" content="https://panditbhaveshjoshi.com/booking.html">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --deep-blue: #003399;
+            --gold: #DAA520;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .text-saffron { color: var(--saffron); }
+        .text-deep-blue { color: var(--deep-blue); }
+        .text-gold { color: var(--gold); }
+        .bg-saffron { background-color: var(--saffron); }
+        .bg-deep-blue { background-color: var(--deep-blue); }
+        .bg-gold { background-color: var(--gold); }
+        .border-saffron { border-color: var(--saffron); }
+        .border-gold { border-color: var(--gold); }
+        
+        .nav-link.active {
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--saffron) 0%, #FF8000 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 153, 51, 0.4);
+        }
+        
+        .btn-secondary {
+            border: 2px solid var(--deep-blue);
+            color: var(--deep-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--deep-blue);
+            color: white;
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .booking-calendar {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background-color: #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .calendar-day-header {
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .calendar-day {
+            background-color: white;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+        
+        .calendar-day:hover:not(.disabled):not(.empty) {
+            background-color: var(--saffron);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .calendar-day.selected {
+            background-color: var(--saffron);
+            color: white;
+            font-weight: 700;
+        }
+        
+        .calendar-day.disabled {
+            background-color: #f3f4f6;
+            color: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .calendar-day.empty {
+            background-color: #f9fafb;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calendar-nav button {
+            background-color: var(--saffron);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-nav button:hover {
+            background-color: #e67e00;
+            transform: translateY(-1px);
+        }
+        
+        .time-slots {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .time-slot-btn {
+            border: 2px solid #d1d5db;
+            background-color: white;
+            color: #374151;
+            transition: all 0.3s ease;
+        }
+        
+        .time-slot-btn:hover {
+            border-color: var(--saffron);
+            background-color: var(--saffron);
+            color: white;
+        }
+        
+        .time-slot-btn.selected {
+            border-color: var(--saffron);
+            background-color: var(--saffron);
+            color: white;
+        }
+        
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        
+        .booking-modal {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .form-input {
+            border: 2px solid #d1d5db;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            border-color: var(--saffron);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 153, 51, 0.15);
+        }
+        
+        .service-card.selected {
+            border-color: var(--saffron);
+            background-color: rgba(255, 153, 51, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-display font-bold text-deep-blue">
+                        <span class="text-saffron">Pandit</span> Bhavesh Joshi
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">About</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                    <a href="shop.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Shop</a>
+                    <a href="booking.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Booking</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    <a href="booking.html" class="btn-primary text-white px-6 py-2 rounded-lg text-sm font-medium">Book Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-toggle text-gray-700 hover:text-saffron focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-16 right-0 w-64 h-full bg-white shadow-lg z-40 md:hidden">
+            <div class="p-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-saffron font-medium">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-saffron font-medium">About</a>
+                <a href="services.html" class="block text-gray-700 hover:text-saffron font-medium">Services</a>
+                <a href="shop.html" class="block text-gray-700 hover:text-saffron font-medium">Shop</a>
+                <a href="booking.html" class="block text-gray-700 hover:text-saffron font-medium">Booking</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-saffron font-medium">Contact</a>
+                <a href="booking.html" class="block btn-primary text-white px-4 py-2 rounded-lg text-center mt-4">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-saffron/10 to-deep-blue/10 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center scroll-animate">
+                <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Book Your <span class="text-saffron">Appointment</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Schedule your Hindu ceremony, pooja, or spiritual consultation with Pandit Bhavesh Joshi. 
+                    Available for services across all 50 states.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:+15551234567" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold text-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call: +1 (555) 123-4567
+                    </a>
+                    <a href="services.html" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold text-center">
+                        <i class="fas fa-list mr-2"></i>
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Service Selection -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Select Your <span class="text-saffron">Service</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Choose from our comprehensive range of Hindu ceremonies and spiritual services
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Wedding Ceremonies -->
+                <div class="service-card bg-gray-50 p-6 rounded-xl cursor-pointer scroll-animate" data-service="wedding">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-saffron/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-saffron text-2xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Wedding Ceremonies</h3>
+                        <p class="text-gray-600 text-sm">Traditional Hindu wedding rituals</p>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Duration:</span>
+                            <span class="font-medium">3-5 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Starting from:</span>
+                            <span class="font-medium text-saffron">$1,200</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Travel:</span>
+                            <span class="font-medium">Nationwide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pooja Services -->
+                <div class="service-card bg-gray-50 p-6 rounded-xl cursor-pointer scroll-animate" data-service="pooja">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-deep-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-pray text-deep-blue text-2xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Pooja Services</h3>
+                        <p class="text-gray-600 text-sm">Daily and special poojas</p>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Duration:</span>
+                            <span class="font-medium">1-2 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Starting from:</span>
+                            <span class="font-medium text-saffron">$300</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Types:</span>
+                            <span class="font-medium">All Deities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Havan Ceremonies -->
+                <div class="service-card bg-gray-50 p-6 rounded-xl cursor-pointer scroll-animate" data-service="havan">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-fire text-gold text-2xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Havan Ceremonies</h3>
+                        <p class="text-gray-600 text-sm">Sacred fire rituals</p>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Duration:</span>
+                            <span class="font-medium">2-4 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Starting from:</span>
+                            <span class="font-medium text-saffron">$400</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Purpose:</span>
+                            <span class="font-medium">Purification</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Griha Pravesh -->
+                <div class="service-card bg-gray-50 p-6 rounded-xl cursor-pointer scroll-animate" data-service="griha-pravesh">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-saffron/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-home text-saffron text-2xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Griha Pravesh</h3>
+                        <p class="text-gray-600 text-sm">Housewarming ceremonies</p>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Duration:</span>
+                            <span class="font-medium">1-3 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Starting from:</span>
+                            <span class="font-medium text-saffron">$350</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Includes:</span>
+                            <span class="font-medium">Vastu Pooja</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Namkaran -->
+                <div class="service-card bg-gray-50 p-6 rounded-xl cursor-pointer scroll-animate" data-service="namkaran">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-deep-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-baby text-deep-blue text-2xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Namkaran Ceremony</h3>
+                        <p class="text-gray-600 text-sm">Baby naming ceremony</p>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Duration:</span>
+                            <span class="font-medium">1-2 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Starting from:</span>
+                            <span class="font-medium text-saffron">$250</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Age:</span>
+                            <span class="font-medium">11-41 days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upanayanam -->
+                <div class="service-card bg-gray-50 p-6 rounded-xl cursor-pointer scroll-animate" data-service="upanayanam">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-gold text-2xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Upanayanam</h3>
+                        <p class="text-gray-600 text-sm">Sacred thread ceremony</p>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Duration:</span>
+                            <span class="font-medium">2-4 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Starting from:</span>
+                            <span class="font-medium text-saffron">$500</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Age:</span>
+                            <span class="font-medium">7-16 years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 scroll-animate">
+                <p class="text-gray-600 mb-6">
+                    <strong>Selected Service:</strong> 
+                    <span id="selected-service" class="text-saffron font-semibold">Please select a service above</span>
+                </p>
+                <button id="continue-to-calendar" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold disabled:opacity-50" disabled>
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Continue to Calendar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Calendar -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Select <span class="text-saffron">Date</span> & <span class="text-saffron">Time</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Choose your preferred date and time slot for the ceremony
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Calendar -->
+                <div class="scroll-animate">
+                    <div class="booking-calendar bg-white p-8 rounded-xl shadow-lg">
+                        <div class="calendar-nav flex justify-between items-center mb-6">
+                            <button class="calendar-prev">
+                                <i class="fas fa-chevron-left mr-2"></i>Previous
+                            </button>
+                            <h3 class="calendar-month font-display text-2xl font-semibold text-gray-900"></h3>
+                            <button class="calendar-next">
+                                Next<i class="fas fa-chevron-right ml-2"></i>
+                            </button>
+                        </div>
+                        <div class="calendar-grid">
+                            <!-- Calendar days will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Slots -->
+                <div class="scroll-animate">
+                    <div class="time-slots bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-6 text-center">
+                            Available Time Slots
+                        </h3>
+                        <div class="text-center text-gray-500 py-12">
+                            <i class="fas fa-calendar-day text-4xl mb-4"></i>
+                            <p>Please select a date first</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 scroll-animate">
+                <div class="bg-white p-6 rounded-xl shadow-lg max-w-md mx-auto">
+                    <h4 class="font-semibold text-gray-900 mb-4">Selected Appointment</h4>
+                    <div class="text-left space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Service:</span>
+                            <span id="booking-service" class="font-medium text-saffron">Not selected</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Date:</span>
+                            <span id="booking-date" class="font-medium text-saffron">Not selected</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Time:</span>
+                            <span id="booking-time" class="font-medium text-saffron">Not selected</span>
+                        </div>
+                    </div>
+                    <button id="book-appointment" class="btn-primary text-white px-8 py-3 rounded-lg font-semibold mt-6 w-full disabled:opacity-50" disabled>
+                        <i class="fas fa-check mr-2"></i>
+                        Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Information -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Booking <span class="text-saffron">Information</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Important details about your appointment and our services
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-saffron/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-saffron text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Advance Booking</h3>
+                    <p class="text-gray-600">
+                        Please book at least 3-7 days in advance to ensure availability, 
+                        especially for weekends and festival seasons.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-deep-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-map-marker-alt text-deep-blue text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Travel Services</h3>
+                    <p class="text-gray-600">
+                        Panditji travels to your location across all 50 states. 
+                        Travel expenses may apply for distant locations.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-phone text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Confirmation</h3>
+                    <p class="text-gray-600">
+                        You'll receive a confirmation call within 24 hours of booking. 
+                        For urgent bookings, please call directly.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-saffron/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-list text-saffron text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Requirements</h3>
+                    <p class="text-gray-600">
+                        We'll provide a detailed list of required items and preparations 
+                        before your ceremony date.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-deep-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-credit-card text-deep-blue text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Payment</h3>
+                    <p class="text-gray-600">
+                        Payment can be made online, by cash, or check. 
+                        A deposit may be required for larger ceremonies.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl text-center scroll-animate">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-calendar-times text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Cancellation</h3>
+                    <p class="text-gray-600">
+                        Please notify us at least 48 hours in advance for cancellations. 
+                        Emergency rescheduling available.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact for Urgent Bookings -->
+    <section class="py-20 bg-gradient-to-r from-saffron/5 to-deep-blue/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="scroll-animate">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Need <span class="text-saffron">Urgent</span> Booking?
+                </h2>
+                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                    For same-day or emergency bookings, please call us directly. 
+                    We understand that some ceremonies cannot wait and will do our best to accommodate your needs.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:+15551234567" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call: +1 (555) 123-4567
+                    </a>
+                    <a href="mailto:urgent@panditbhaveshjoshi.com" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Emergency Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal modal-overlay fixed inset-0 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-2xl w-full">
+                <!-- Modal content will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-display font-bold mb-4">
+                        <span class="text-saffron">Pandit</span> Bhavesh Joshi
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Traditional Hindu priest offering authentic spiritual services, 
+                        ceremonies, and rituals across the United States.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-saffron transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-saffron transition-colors">Services</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-saffron transition-colors">Shop</a></li>
+                        <li><a href="booking.html" class="text-gray-400 hover:text-saffron transition-colors">Booking</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-saffron transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-saffron mr-3"></i>
+                            <a href="tel:+15551234567" class="hover:text-saffron transition-colors">+1 (555) 123-4567</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-saffron mr-3"></i>
+                            <a href="mailto:info@panditbhaveshjoshi.com" class="hover:text-saffron transition-colors">info@panditbhaveshjoshi.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-saffron mr-3"></i>
+                            <span>Serving All 50 States</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Pandit Bhavesh Joshi. All rights reserved. | 
+                <span class="text-saffron">ॐ शान्ति शान्ति शान्तिः</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        // Booking-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            let selectedService = null;
+            let selectedDate = null;
+            let selectedTime = null;
+
+            // Service selection
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    // Remove previous selection
+                    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+                    
+                    // Add selection to clicked card
+                    this.classList.add('selected');
+                    
+                    // Update selected service
+                    selectedService = this.dataset.service;
+                    const serviceName = this.querySelector('h3').textContent;
+                    document.getElementById('selected-service').textContent = serviceName;
+                    document.getElementById('booking-service').textContent = serviceName;
+                    
+                    // Enable continue button
+                    document.getElementById('continue-to-calendar').disabled = false;
+                });
+            });
+
+            // Continue to calendar
+            document.getElementById('continue-to-calendar').addEventListener('click', function() {
+                if (selectedService) {
+                    document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            // Book appointment
+            document.getElementById('book-appointment').addEventListener('click', function() {
+                if (selectedService && selectedDate && selectedTime) {
+                    // Show booking modal
+                    showBookingModal();
+                } else {
+                    alert('Please complete all selections before booking.');
+                }
+            });
+
+            function showBookingModal() {
+                const modal = document.querySelector('.booking-modal');
+                const modalContent = modal.querySelector('.modal-content');
+                
+                const serviceNames = {
+                    'wedding': 'Wedding Ceremony',
+                    'pooja': 'Pooja Service',
+                    'havan': 'Havan Ceremony',
+                    'griha-pravesh': 'Griha Pravesh',
+                    'namkaran': 'Namkaran Ceremony',
+                    'upanayanam': 'Upanayanam Ceremony'
+                };
+                
+                const dateStr = selectedDate.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+
+                modalContent.innerHTML = `
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Book Your Appointment</h3>
+                            <p class="text-gray-600">Please provide your details to complete the booking</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg mb-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">Booking Summary:</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>Service:</span>
+                                    <span class="font-medium text-saffron">${serviceNames[selectedService]}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Date:</span>
+                                    <span class="font-medium text-saffron">${dateStr}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Time:</span>
+                                    <span class="font-medium text-saffron">${selectedTime}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form class="booking-form space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Full Name *</label>
+                                    <input type="text" name="name" required class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Age</label>
+                                    <input type="number" name="age" class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Gender</label>
+                                <select name="gender" class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Location/City *</label>
+                                <input type="text" name="location" required class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Mobile Number *</label>
+                                    <input type="tel" name="mobile" required class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">WhatsApp Number</label>
+                                    <input type="tel" name="whatsapp" class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email Address</label>
+                                <input type="email" name="email" class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Additional Notes</label>
+                                <textarea name="notes" rows="3" class="form-input w-full px-3 py-2 border rounded-lg focus:border-orange-500 focus:outline-none" placeholder="Any specific requirements or questions..."></textarea>
+                            </div>
+                            <div class="flex gap-4 pt-4">
+                                <button type="button" class="modal-close btn-secondary px-6 py-3 rounded-lg font-semibold flex-1">Cancel</button>
+                                <button type="submit" class="btn-primary text-white px-6 py-3 rounded-lg font-semibold flex-1">Confirm Booking</button>
+                            </div>
+                        </form>
+                    </div>
+                `;
+
+                // Add event listeners
+                const closeBtn = modalContent.querySelector('.modal-close');
+                const form = modalContent.querySelector('.booking-form');
+
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.add('hidden');
+                });
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const bookingData = {
+                        service: selectedService,
+                        date: selectedDate,
+                        time: selectedTime,
+                        name: formData.get('name'),
+                        age: formData.get('age'),
+                        gender: formData.get('gender'),
+                        location: formData.get('location'),
+                        mobile: formData.get('mobile'),
+                        whatsapp: formData.get('whatsapp'),
+                        email: formData.get('email'),
+                        notes: formData.get('notes')
+                    };
+
+                    console.log('Booking Data:', bookingData);
+                    showBookingSuccess(bookingData);
+                    modal.classList.add('hidden');
+                });
+
+                modal.classList.remove('hidden');
+            }
+
+            function showBookingSuccess(bookingData) {
+                const serviceNames = {
+                    'wedding': 'Wedding Ceremony',
+                    'pooja': 'Pooja Service',
+                    'havan': 'Havan Ceremony',
+                    'griha-pravesh': 'Griha Pravesh',
+                    'namkaran': 'Namkaran Ceremony',
+                    'upanayanam': 'Upanayanam Ceremony'
+                };
+                
+                const dateStr = bookingData.date.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+
+                // Create success notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg max-w-md';
+                notification.innerHTML = `
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-check-circle text-2xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-lg font-semibold">Booking Confirmed!</h4>
+                            <p class="text-sm mt-1">Your appointment has been successfully booked.</p>
+                            <div class="mt-3 text-xs bg-green-600 p-3 rounded">
+                                <p><strong>Service:</strong> ${serviceNames[bookingData.service]}</p>
+                                <p><strong>Date:</strong> ${dateStr}</p>
+                                <p><strong>Time:</strong> ${bookingData.time}</p>
+                                <p><strong>Location:</strong> ${bookingData.location}</p>
+                            </div>
+                            <p class="text-xs mt-2">You will receive a confirmation call within 24 hours.</p>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Auto remove after 10 seconds
+                setTimeout(() => {
+                    notification.remove();
+                }, 10000);
+
+                // Reset form
+                selectedService = null;
+                selectedDate = null;
+                selectedTime = null;
+                document.getElementById('selected-service').textContent = 'Please select a service above';
+                document.getElementById('booking-service').textContent = 'Not selected';
+                document.getElementById('booking-date').textContent = 'Not selected';
+                document.getElementById('booking-time').textContent = 'Not selected';
+                document.getElementById('continue-to-calendar').disabled = true;
+                document.getElementById('book-appointment').disabled = true;
+                document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+            }
+
+            // Update booking summary
+            function updateBookingSummary() {
+                if (selectedDate) {
+                    const dateStr = selectedDate.toLocaleDateString('en-US', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                    document.getElementById('booking-date').textContent = dateStr;
+                }
+                
+                if (selectedTime) {
+                    document.getElementById('booking-time').textContent = selectedTime;
+                }
+                
+                // Enable book button if all selections are made
+                const bookBtn = document.getElementById('book-appointment');
+                bookBtn.disabled = !(selectedService && selectedDate && selectedTime);
+            }
+
+            // Make updateBookingSummary available globally for the calendar functionality
+            window.updateBookingSummary = updateBookingSummary;
+        });
+    </script>
+</body>
+</html>
