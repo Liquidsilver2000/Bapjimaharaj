@@ -1,2 +1,2 @@
-# Bapjimaharajkijaiho
+# Bapjimaharaj
 bapji-website
