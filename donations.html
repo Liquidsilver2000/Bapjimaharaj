@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations – Support Pandit Bhavesh Joshi</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --deep-blue: #003399;
+        }
+        body { font-family: "Inter", sans-serif; background: #f8f8f8; }
+
+        .donation-option.active {
+            background: var(--deep-blue);
+            color: white;
+        }
+
+        .amount-btn.active {
+            background: var(--saffron);
+            color: white;
+            border-color: var(--saffron);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="container mx-auto p-8">
+    <h1 class="font-display text-4xl text-center font-bold mb-10 text-deep-blue">
+        Make a Donation
+    </h1>
+
+    <div class="bg-white rounded-xl shadow-lg p-8 grid md:grid-cols-2 gap-10">
+
+        <!-- Left -->
+        <div>
+            <img src="./resources/brand_image.png" class="rounded-lg shadow mb-6">
+
+            <h2 class="font-display text-2xl font-semibold text-deep-blue mb-4">
+                Support Spiritual Services & Community Outreach
+            </h2>
+
+            <p class="text-gray-700 mb-4">
+                Your donation helps sustain Vedic education, community ceremonies, and traditional Hindu outreach across America.
+            </p>
+
+            <p class="text-gray-700">
+                Every contribution makes a difference—thank you for your generosity.
+            </p>
+        </div>
+
+        <!-- Right : Step 1 -->
+        <div id="step1" class="border rounded-xl bg-gray-50 p-6">
+            <div class="flex border-b mb-6">
+                <button id="monthlyBtn" class="donation-option w-1/2 py-3 active font-semibold">GIVE MONTHLY</button>
+                <button id="onceBtn" class="donation-option w-1/2 py-3 font-semibold">GIVE ONCE</button>
+            </div>
+
+            <h3 class="font-semibold mb-3">1. Choose an Amount</h3>
+
+            <div class="grid grid-cols-3 gap-3 mb-4">
+                <button class="amount-btn border py-2 rounded" data-amount="15">$15</button>
+                <button class="amount-btn border py-2 rounded" data-amount="30">$30</button>
+                <button class="amount-btn border py-2 rounded" data-amount="50">$50</button>
+                <button class="amount-btn border py-2 rounded" data-amount="75">$75</button>
+                <button class="amount-btn border py-2 rounded" data-amount="100">$100</button>
+                <button class="amount-btn border py-2 rounded" id="otherAmountBtn" data-amount="0">Other</button>
+            </div>
+
+            <input type="number" id="customAmount" placeholder="Enter custom amount"
+                   class="w-full border px-3 py-2 rounded mb-4 hidden">
+
+            <label class="flex items-center space-x-2 text-sm mb-4">
+                <input type="checkbox" id="coverFee" class="form-checkbox">
+                <span>Help cover transaction fees</span>
+            </label>
+
+            <div class="text-center mb-5">
+                <p class="text-gray-600 text-sm">Your Gift Amount</p>
+                <p id="displayAmount" class="text-3xl font-bold text-saffron">$0.00</p>
+            </div>
+
+            <button id="payCardBtn" class="w-full py-3 border rounded font-semibold mb-3 hover:bg-gray-200">
+                Pay with Card
+            </button>
+
+            <button id="step1Continue" class="w-full py-3 bg-saffron text-white font-bold rounded">
+                Continue to Step 2
+            </button>
+        </div>
+
+        <!-- Step 2: Donor Details -->
+        <div id="step2" class="hidden border rounded-xl bg-white p-6 shadow">
+
+            <h2 class="text-xl font-semibold mb-4">Your Details</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <input type="text" placeholder="First Name" id="fname" class="border p-3 rounded">
+                <input type="text" placeholder="Last Name" id="lname" class="border p-3 rounded">
+            </div>
+
+            <input type="email" placeholder="Email Address" id="email"
+                   class="border p-3 rounded w-full mb-4">
+
+            <input type="text" placeholder="Address" id="address"
+                   class="border p-3 rounded w-full mb-4">
+
+            <button id="submitDonation"
+                    class="w-full py-3 bg-deep-blue text-white font-semibold rounded hover:opacity-90">
+                Complete Donation
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal-overlay">
+    <div class="bg-white p-8 rounded-xl shadow-lg text-center w-96">
+        <i class="fa fa-check-circle text-green-600 text-5xl mb-4"></i>
+        <h2 class="text-xl font-bold mb-2">Thank You!</h2>
+        <p class="text-gray-600 mb-4">Your donation has been received.</p>
+        <button id="modalClose" class="bg-saffron text-white px-5 py-2 rounded font-semibold">
+            Close
+        </button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-display font-bold mb-4">
+                        <span class="text-saffron">Pandit</span> Bhavesh Joshi
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Traditional Hindu priest offering authentic spiritual services, 
+                        ceremonies, and rituals across the United States.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-saffron transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-saffron transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-saffron transition-colors">Services</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-saffron transition-colors">Shop</a></li>
+                        <li><a href="booking.html" class="text-gray-400 hover:text-saffron transition-colors">Booking</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-saffron transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+            <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-saffron mr-3"></i>
+                            <a href="tel:+1 (423)-530-2592" class="hover:text-saffron transition-colors">+1 (423)-530-2592</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-saffron mr-3"></i>
+                            <a href="mailto:panditbhaveshji@gmail.com" class="hover:text-saffron transition-colors">panditbhaveshji@gmail.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-saffron mr-3"></i>
+                            <span>Serving All 50 States</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2010 Pandit Bhavesh Joshi. All rights reserved. | 
+                <span class="text-saffron">ॐ शान्ति शान्ति शान्तिः</span></p>
+            </div>
+        </div>
+</footer>
+<script>
+let selectedAmount = 15;
+    // --- Amount selector ---
+    document.querySelectorAll(".amount-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".amount-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            selectedAmount = parseFloat(btn.dataset.amount);
+
+            if (selectedAmount === 0) {
+                customAmount.classList.remove("hidden");
+                customAmount.focus();
+            } else {
+                customAmount.classList.add("hidden");
+            }
+
+            updateTotal();
+        });
+    });
+
+    coverFee.addEventListener("change", updateTotal);
+    customAmount.addEventListener("input", () => {
+        selectedAmount = parseFloat(customAmount.value || 0);
+        updateTotal();
+    });
+
+    function updateTotal() {
+        let total = selectedAmount || 0;
+        if (coverFee.checked) total = (total * 1.022).toFixed(2);
+        displayAmount.textContent = "$" + total;
+    }
+
+    // --- Toggle Give Once / Monthly ---
+    onceBtn.addEventListener("click", () => {
+        onceBtn.classList.add("active");
+        monthlyBtn.classList.remove("active");
+    });
+    monthlyBtn.addEventListener("click", () => {
+        monthlyBtn.classList.add("active");
+        onceBtn.classList.remove("active");
+    });
+
+    // Step 1 → Step 2
+    step1Continue.addEventListener("click", () => {
+        step1.classList.add("hidden");
+        step2.classList.remove("hidden");
+    });
+
+    // Pay With Card (same behavior as Continue)
+    payCardBtn.addEventListener("click", () => {
+        step1.classList.add("hidden");
+        step2.classList.remove("hidden");
+    });
+
+    // Submit Donation
+    submitDonation.addEventListener("click", () => {
+        successModal.classList.add("active");
+
+        // 🔥 BACKEND CALL HERE:
+        /*
+        fetch("/api/donate", {
+            method: "POST",
+            body: JSON.stringify({
+                amount: selectedAmount,
+                name: fname.value + " " + lname.value,
+                email: email.value
+            })
+        });
+        */
+    });
+
+    // Close modal
+    modalClose.addEventListener("click", () => {
+        successModal.classList.remove("active");
+        window.location.href = "index.html"; // redirect
+    });
+
+    // Auto-initialize
+    updateTotal();
+    </script>
+
+</body>
+</html>
