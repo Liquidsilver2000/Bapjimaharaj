@@ -26,6 +26,9 @@
     
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+    <!-- Replace YOUR_EMAIL@gmail.com with your actual Gmail -->
+    <form action="https://formsubmit.co/Panditbhaveshji@gmail.com" method="POST">
     
     <!-- Custom Styles -->
     <style>
@@ -174,13 +177,15 @@
                 </div>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-8 ml-12">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Home</a>
                     <a href="about.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">About</a>
                     <a href="services.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Services</a>
                     <a href="shop.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Shop</a>
                     <a href="booking.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Booking</a>
                     <a href="contact.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    <a href="donations.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Donations</a>
+                    <a href="beautician.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Beautician</a>
                     <a href="booking.html" class="btn-primary text-white px-6 py-2 rounded-lg text-sm font-medium">Book Now</a>
                 </div>
 
@@ -202,7 +207,10 @@
                 <a href="shop.html" class="block text-gray-700 hover:text-saffron font-medium">Shop</a>
                 <a href="booking.html" class="block text-gray-700 hover:text-saffron font-medium">Booking</a>
                 <a href="contact.html" class="block text-gray-700 hover:text-saffron font-medium">Contact</a>
+                <a href="donations.html" class="block text-gray-700 hover:text-saffron font-medium">Donations</a>
+                <a href="beautician.html" class="block text-gray-700 hover:text-saffron font-medium">Beautician</a>
                 <a href="booking.html" class="block btn-primary text-white px-4 py-2 rounded-lg text-center mt-4">Book Now</a>
+                
             </div>
         </div>
     </nav>
@@ -481,18 +489,29 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Map -->
-                <div class="scroll-animate">
-                    <div class="map-container bg-gray-200 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-map-marked-alt text-6xl mb-4"></i>
-                            <h3 class="font-semibold text-lg mb-2">United States Coverage Map</h3>
-                            <p class="text-sm">Serving all 50 states with Hindu priest services</p>
-                            <p class="text-xs mt-2 text-gray-500">
-                                Interactive map would be integrated here with Google Maps API
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <div class="map-container bg-gray-200 flex items-center justify-center relative overflow-hidden rounded-xl shadow-lg"
+                style="min-height: 400px;">
+
+    <!-- INTERACTIVE GOOGLE MAP (Kingsport, TN) -->
+                <iframe
+                    class="absolute inset-0 w-full h-full"
+                    style="object-fit: cover; filter: brightness(60%);"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50651.94858369336!2d-82.61363575212879!3d36.53616567474037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x885a0f39ff9e0adb%3A0xcedd5b43b46777fa!2sKingsport%2C%20TN!5e0!3m2!1sen!2sus!4v1704678900000!5m2!1sen!2sus"
+                    frameborder="0"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0">
+                </iframe>
+
+    <!-- ⭐ RED PIN OVERLAY ⭐ -->
+                <img
+                src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi-dotless_hdpi.png"
+                alt="map-pin"
+                class="absolute z-20"
+                style="width: 40px; height: 40px; top: 50%; left: 50%; transform: translate(-50%, -100%);">
+ 
+            </div>
+
 
                 <!-- Service Areas List -->
                 <div class="scroll-animate">
@@ -699,24 +718,25 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-saffron to-orange-500">
+    <section class="py-20" style="background: linear-gradient(to right, var(--saffron), #FF8000);">
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="scroll-animate">
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
                     Ready to Begin Your Spiritual Journey?
                 </h2>
                 <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-                    Don't wait to connect with your spiritual heritage. Contact us today to discuss 
-                    your ceremony needs and book your appointment with Pandit Bhavesh Joshi.
+                    Book your appointment today and experience the transformative power 
+                    of authentic Hindu ceremonies with Pandit Bhavesh Joshi.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="booking.html" class="bg-white text-saffron px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-                        <i class="fas fa-calendar-check mr-2"></i>
-                        Book Appointment
-                    </a>
-                    <a href="tel:+1 (423)-530-2592" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-saffron transition-colors">
-                        <i class="fas fa-phone mr-2"></i>
-                        Call Now
+                        <a href="booking.html" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold text-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                            Book Appointment Now
+                        </a>
+                    <a href="tel:+14235302592" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold text-center">
+                    <i class="fas fa-phone mr-2"></i>
+                        Call Now: +1 (423) 530-2592
                     </a>
                 </div>
             </div>
@@ -761,6 +781,8 @@
                         <li><a href="shop.html" class="text-gray-400 hover:text-saffron transition-colors">Shop</a></li>
                         <li><a href="booking.html" class="text-gray-400 hover:text-saffron transition-colors">Booking</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-saffron transition-colors">Contact</a></li>
+                        <li><a href="donations.html" class="text-gray-400 hover:text-saffron transition-colors">Donations</a></li>
+                        <li><a href="beautician.html" class="text-gray-400 hover:text-saffron transition-colors">Beautician</a></li>
                     </ul>
                 </div>
 

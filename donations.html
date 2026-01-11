@@ -45,14 +45,195 @@
         .modal-overlay.active {
             display: flex;
         }
+
+        :root {
+            --saffron: #FF9933;
+            --deep-blue: #003399;
+            --gold: #DAA520;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .text-saffron { color: var(--saffron); }
+        .text-deep-blue { color: var(--deep-blue); }
+        .text-gold { color: var(--gold); }
+        .bg-saffron { background-color: var(--saffron); }
+        .bg-deep-blue { background-color: var(--deep-blue); }
+        .bg-gold { background-color: var(--gold); }
+        .border-saffron { border-color: var(--saffron); }
+        .border-gold { border-color: var(--gold); }
+        
+        .nav-link.active {
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--saffron) 0%, #FF8000 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 153, 51, 0.4);
+        }
+        
+        .btn-secondary {
+            border: 2px solid var(--deep-blue);
+            color: var(--deep-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--deep-blue);
+            color: white;
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .contact-card:hover {
+            border-color: var(--saffron);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 153, 51, 0.15);
+        }
+        
+        .form-input {
+            border: 2px solid #d1d5db;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--saffron);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+        }
+        
+        .social-link {
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+            color: var(--saffron);
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-display font-bold text-deep-blue">
+                        <span class="text-saffron">Pandit</span> Bhavesh Joshi
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 ml-12">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">About</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                    <a href="shop.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Shop</a>
+                    <a href="booking.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Booking</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    <a href="donations.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Donations</a>
+                    <a href="beautician.html" class="nav-link text-gray-700 hover:text-saffron px-3 py-2 text-sm font-medium transition-colors">Beautician</a>
+                    <a href="booking.html" class="btn-primary text-white px-6 py-2 rounded-lg text-sm font-medium">Book Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-toggle text-gray-700 hover:text-saffron focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-16 right-0 w-64 h-full bg-white shadow-lg z-40 md:hidden">
+            <div class="p-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-saffron font-medium">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-saffron font-medium">About</a>
+                <a href="services.html" class="block text-gray-700 hover:text-saffron font-medium">Services</a>
+                <a href="shop.html" class="block text-gray-700 hover:text-saffron font-medium">Shop</a>
+                <a href="booking.html" class="block text-gray-700 hover:text-saffron font-medium">Booking</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-saffron font-medium">Contact</a>
+                <a href="donations.html" class="block text-gray-700 hover:text-saffron font-medium">Donations</a>
+                <a href="beautician.html" class="block text-gray-700 hover:text-saffron font-medium">Beautician</a>
+                <a href="booking.html" class="block btn-primary text-white px-4 py-2 rounded-lg text-center mt-4">Book Now</a>
+                
+            </div>
+        </div>
+    </nav>
+
 <section class="container mx-auto p-8">
-    <h1 class="font-display text-4xl text-center font-bold mb-10 text-deep-blue">
-        Make a Donation
+    <h1 class="font-display text-4xl md:text-5xl text-center font-bold mb-10 text-deep-blue">
+        Donate to <span class="text-saffron">Pandit Bhavesh Joshi Foundation</span>
     </h1>
 
     <div class="bg-white rounded-xl shadow-lg p-8 grid md:grid-cols-2 gap-10">
@@ -105,50 +286,190 @@
                 <p id="displayAmount" class="text-3xl font-bold text-saffron">$0.00</p>
             </div>
 
-            <button id="payCardBtn" class="w-full py-3 border rounded font-semibold mb-3 hover:bg-gray-200">
+            <button id="payCardBtn" class="w-full py-3 border rounded font-semibold mb-3 hover:bg-gray-400">
                 Pay with Card
             </button>
+            
+                        <!-- Payment Logos -->
+            <div class="flex flex-wrap justify-center items-center mt-6 mb-6 gap-7 opacity-80">
+                <div class="text-center">
+                    <i class="fab fa-cc-visa text-4xl text-blue-600"></i>
+                    <p class="text-sm text-gray-600 mt-2">Visa</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-cc-mastercard text-4xl text-red-600"></i>
+                    <p class="text-sm text-gray-600 mt-2">Mastercard</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-paypal text-4xl text-blue-500"></i>
+                    <p class="text-sm text-gray-600 mt-2">PayPal</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-google-pay text-4xl text-green-600"></i>
+                    <p class="text-sm text-gray-600 mt-2">Google Pay</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-apple-pay text-4xl text-gray-800"></i>
+                    <p class="text-sm text-gray-600 mt-2">Apple Pay</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-credit-card text-3xl text-purple-600"></i>
+                    <p class="text-sm text-gray-600 mt-2">Stripe</p>
+                </div>
+            </div>
+
 
             <button id="step1Continue" class="w-full py-3 bg-saffron text-white font-bold rounded">
                 Continue to Step 2
             </button>
+    
         </div>
 
         <!-- Step 2: Donor Details -->
         <div id="step2" class="hidden border rounded-xl bg-white p-6 shadow">
 
-            <h2 class="text-xl font-semibold mb-4">Your Details</h2>
+            <h2 class="text-xl font-semibold mb-4">2. Your Details</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <input type="text" placeholder="First Name" id="fname" class="border p-3 rounded">
                 <input type="text" placeholder="Last Name" id="lname" class="border p-3 rounded">
             </div>
-
-            <input type="email" placeholder="Email Address" id="email"
+            
+            <input type="text" placeholder="Address" id="address"
+                   class="border p-3 rounded w-full mb-4">
+            <input type="text" placeholder="City" id="City"
                    class="border p-3 rounded w-full mb-4">
 
-            <input type="text" placeholder="Address" id="address"
+
+            <select id="State" class="border p-3 rounded w-full mb-4">
+                <option value="" class="text-gray-400">Select State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+                <option value="DC">Washington D.C.</option>
+            </select>
+
+            <input type="text" placeholder="Zip Code" id="ZipCode"
+                   class="border p-3 rounded w-full mb-4">       
+            <input type="email" placeholder="Email Address" id="email"
                    class="border p-3 rounded w-full mb-4">
 
             <button id="submitDonation"
                     class="w-full py-3 bg-deep-blue text-white font-semibold rounded hover:opacity-90">
-                Complete Donation
+                Proceed to Payment Info
             </button>
+        </div>
+
+
+                <!-- Step 3: Card Payment Info -->
+        <div id="step3" class="hidden border rounded-xl bg-white p-6 shadow mt-10">
+
+            <h2 class="text-xl font-semibold mb-4">3. Payment Information</h2>
+
+            <div class="grid grid-cols-1 gap-4 mb-4">
+                <input type="text" id="cardName" placeholder="Name on Card"
+                    class="border p-3 rounded w-full">
+
+                <input type="text" id="cardNumber" placeholder="Card Number"
+                    class="border p-3 rounded w-full">
+
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="expiry" placeholder="MM/YY"
+                        class="border p-3 rounded w-full">
+                    <input type="text" id="cvv" placeholder="CVV"
+                        class="border p-3 rounded w-full">
+                </div>
+            </div>
+
+            <button id="payNowBtn"
+                    class="w-full py-3 bg-deep-blue text-white font-semibold rounded hover:opacity-90">
+                Pay Now
+            </button>
+                <p class="text-xs text-gray-500 mt-4 leading-tight">
+                    By making this donation, you agree that your gift is voluntary and non-refundable
+                    and may be used at the discretion of the Pandit Bhavesh Joshi Foundation to support
+                    its mission and community programs. You authorize the secure processing of your
+                    payment and confirm that all information provided is accurate and that you are
+                    eligible to make this contribution. No goods or services are provided in exchange
+                    for your donation.
+                    <br><br>
+                    Consult your tax advisor regarding the deductibility of your contribution.
+                    Your privacy is important — we do not store any credit card details or sensitive
+                    payment information. Personal information (name, email, address) is used solely
+                    to provide receipts and donor communication and is never sold or shared.
+                </p>
+
         </div>
     </div>
 </section>
 
+
 <!-- Success Modal -->
-<div id="successModal" class="modal-overlay">
-    <div class="bg-white p-8 rounded-xl shadow-lg text-center w-96">
+<div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg text-center w-96 animate-fade-in">
         <i class="fa fa-check-circle text-green-600 text-5xl mb-4"></i>
         <h2 class="text-xl font-bold mb-2">Thank You!</h2>
-        <p class="text-gray-600 mb-4">Your donation has been received.</p>
-        <button id="modalClose" class="bg-saffron text-white px-5 py-2 rounded font-semibold">
+        <p class="text-gray-600 mb-4">
+            Your donation has been received successfully. 
+        </p>
+        <p class="text-gray-600 mb-2">
+            An email confirmation should arrive shortly in your inbox. 
+        </p>         
+        <button id="modalClose"
+            class="bg-saffron text-white px-5 py-2 rounded font-semibold hover:bg-orange-500 transition">
             Close
         </button>
     </div>
 </div>
+
+
 
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12">
@@ -188,6 +509,8 @@
                         <li><a href="shop.html" class="text-gray-400 hover:text-saffron transition-colors">Shop</a></li>
                         <li><a href="booking.html" class="text-gray-400 hover:text-saffron transition-colors">Booking</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-saffron transition-colors">Contact</a></li>
+                        <li><a href="donations.html" class="text-gray-400 hover:text-saffron transition-colors">Donations</a></li>
+                        <li><a href="beautician.html" class="text-gray-400 hover:text-saffron transition-colors">Beautician</a></li>
                     </ul>
                 </div>
 
@@ -217,87 +540,115 @@
             </div>
         </div>
 </footer>
-<script>
+
+<script src="main.js"></script>
+<script>   
+
 let selectedAmount = 15;
-    // --- Amount selector ---
-    document.querySelectorAll(".amount-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            document.querySelectorAll(".amount-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
 
-            selectedAmount = parseFloat(btn.dataset.amount);
+/* ------------------------------
+   AMOUNT SELECTION
+------------------------------ */
+document.querySelectorAll(".amount-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".amount-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
 
-            if (selectedAmount === 0) {
-                customAmount.classList.remove("hidden");
-                customAmount.focus();
-            } else {
-                customAmount.classList.add("hidden");
-            }
+        selectedAmount = parseFloat(btn.dataset.amount);
 
-            updateTotal();
-        });
-    });
+        if (selectedAmount === 0) {
+            customAmount.classList.remove("hidden");
+            customAmount.focus();
+        } else {
+            customAmount.classList.add("hidden");
+        }
 
-    coverFee.addEventListener("change", updateTotal);
-    customAmount.addEventListener("input", () => {
-        selectedAmount = parseFloat(customAmount.value || 0);
         updateTotal();
     });
+});
 
-    function updateTotal() {
-        let total = selectedAmount || 0;
-        if (coverFee.checked) total = (total * 1.022).toFixed(2);
-        displayAmount.textContent = "$" + total;
-    }
-
-    // --- Toggle Give Once / Monthly ---
-    onceBtn.addEventListener("click", () => {
-        onceBtn.classList.add("active");
-        monthlyBtn.classList.remove("active");
-    });
-    monthlyBtn.addEventListener("click", () => {
-        monthlyBtn.classList.add("active");
-        onceBtn.classList.remove("active");
-    });
-
-    // Step 1 → Step 2
-    step1Continue.addEventListener("click", () => {
-        step1.classList.add("hidden");
-        step2.classList.remove("hidden");
-    });
-
-    // Pay With Card (same behavior as Continue)
-    payCardBtn.addEventListener("click", () => {
-        step1.classList.add("hidden");
-        step2.classList.remove("hidden");
-    });
-
-    // Submit Donation
-    submitDonation.addEventListener("click", () => {
-        successModal.classList.add("active");
-
-        // 🔥 BACKEND CALL HERE:
-        /*
-        fetch("/api/donate", {
-            method: "POST",
-            body: JSON.stringify({
-                amount: selectedAmount,
-                name: fname.value + " " + lname.value,
-                email: email.value
-            })
-        });
-        */
-    });
-
-    // Close modal
-    modalClose.addEventListener("click", () => {
-        successModal.classList.remove("active");
-        window.location.href = "index.html"; // redirect
-    });
-
-    // Auto-initialize
+coverFee.addEventListener("change", updateTotal);
+customAmount.addEventListener("input", () => {
+    selectedAmount = parseFloat(customAmount.value || 0);
     updateTotal();
-    </script>
+});
 
+function updateTotal() {
+    let total = selectedAmount || 0;
+    if (coverFee.checked) total = (total * 1.022).toFixed(2);
+    displayAmount.textContent = "$" + total;
+}
+
+
+/* ------------------------------
+   GIVE ONCE / MONTHLY TOGGLE
+------------------------------ */
+onceBtn.addEventListener("click", () => {
+    onceBtn.classList.add("active");
+    monthlyBtn.classList.remove("active");
+});
+
+monthlyBtn.addEventListener("click", () => {
+    monthlyBtn.classList.add("active");
+    onceBtn.classList.remove("active");
+});
+
+
+/* ------------------------------
+   STEP 1 → STEP 2
+------------------------------ */
+step1Continue.addEventListener("click", () => {
+    step1.classList.add("hidden");
+    step2.classList.remove("hidden");
+});
+
+// Pay With Card (same behavior)
+payCardBtn.addEventListener("click", () => {
+    step1.classList.add("hidden");
+    step2.classList.remove("hidden");
+});
+
+
+/* ------------------------------
+   STEP 2 → STEP 3 (Card Details)
+------------------------------ */
+submitDonation.addEventListener("click", () => {
+    // NO MODAL HERE!
+    // This should only take user to payment section
+
+    step2.classList.add("hidden");
+    step3.classList.remove("hidden");
+});
+
+
+
+/* ------------------------------
+   PAY NOW → SHOW SUCCESS MODAL
+------------------------------ */
+const payNowBtn = document.getElementById("payNowBtn");
+const successModal = document.getElementById("successModal");
+const modalClose = document.getElementById("modalClose");
+
+if (payNowBtn) {
+    payNowBtn.addEventListener("click", () => {
+        successModal.classList.remove("hidden");
+    });
+}
+
+modalClose.addEventListener("click", () => {
+    successModal.classList.add("hidden");
+    window.location.href = "donations.html";
+});
+
+
+/* ------------------------------
+   INIT
+------------------------------ */
+updateTotal();
+
+</script>
+
+
+     
 </body>
 </html>
